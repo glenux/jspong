@@ -5,4 +5,11 @@
 	c.fillStyle="#000";
 	c.fillRect(0,0,100,100);
 	
+	function createRaquette(){
+	
+		return {
+			
+		};
+	}
+	
 })();
