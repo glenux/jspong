@@ -12,4 +12,18 @@
 		};
 	}
 	
+document.addEventListener( 'touchstart', function ( event ) {
+        event.preventDefault();
+        for ( var i = 0; i < event.touches.length; i++ ) {
+            console.log('start'+event.touches[i].pageX,
+            event.touches[i].pageY);
+        }
+    }, false );
+    document.addEventListener( 'touchmove', function ( event ) {
+        event.preventDefault();
+        for ( var i = 0; i < event.touches.length; i++ ) {
+            console.log('move'+event.touches[i].pageX,
+            event.touches[i].pageY);
+        }
+    }, false );	
 })();
