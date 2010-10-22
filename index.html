@@ -3,7 +3,8 @@
 <div style="position:absolute;top:0;right:0" id="console">
 console
 </div>
-<script> 
+<script>
+var iColor = 0; 
 var canvas = document.createElement( 'canvas' );
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -11,7 +12,6 @@ canvas.style.display = 'block';
 document.body.appendChild( canvas );
 
 var context = canvas.getContext( '2d' );
-context.fillStyle="#F00";
 
 document.addEventListener( 'mousemove', onMouseEvent, false );
 document.addEventListener( 'touchstart', onTouchEvent, false );
@@ -29,8 +29,12 @@ function onTouchEvent( event ) {
 }
 
 function fill(x,y){
+  context.save();
+  context.fillStyle="hsl("+iColor+", 100%, 50%)";
   context.fillRect(x,y,20,20);
   log('x'+x+'y'+y);
+  context.restore();
+  iColor = (iColor+1)%360;
 }
 function $(id){return document.getElementById(id);}
 function log(txt){$('console').innerHTML=txt;};
